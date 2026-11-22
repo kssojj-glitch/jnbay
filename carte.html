@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta property="og:title" content="JNBAY – États des lieux">
+<meta property="og:description" content="États des lieux & prise de vue 360° à Paris – IDF. Réservez en ligne.">
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>JNBAY Carte de visite</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="JNBAY – États des lieux & prise de vue 360° à Paris et en Île-de-France. Réservez en ligne.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@400;500;600&display=swap">
+<style>
+/* Layout: one phone-sized card — greige header with thin serif wordmark, contact actions, QR to the booking funnel */
+:root{
+  --bg:#e9e3dd; --card:#fbf9f7; --sand:#d6ccc3; --ink:#1d1a17; --muted:#6b6058; --line:#ddd3ca;
+  --bronze:#8f6f35; --bronze-soft:#efe4cf; --on-bronze:#fff;
+  --display:"Cormorant Garamond", "Times New Roman", Georgia, serif;
+  --body:"Montserrat", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141210; --card:#1f1c19; --sand:#2b2622; --ink:#f1ebe5; --muted:#b3a79c; --line:#3a332e;
+  --bronze:#d2ad6a; --bronze-soft:#3a3020; --on-bronze:#1a1510; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141210; --card:#1f1c19; --sand:#2b2622; --ink:#f1ebe5; --muted:#b3a79c; --line:#3a332e;
+  --bronze:#d2ad6a; --bronze-soft:#3a3020; --on-bronze:#1a1510; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px}
+.card{max-width:420px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.head{background:var(--sand);padding:28px 24px 22px;text-align:center;border-bottom:1px solid var(--line)}
+.brand{font-family:var(--display);font-size:3rem;font-weight:500;letter-spacing:.06em;line-height:1;margin:0}
+.tag{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.who{padding:22px 24px 6px;text-align:center}
+.who h1{font-family:var(--display);font-weight:500;font-size:1.9rem;margin:0;line-height:1.1}
+.who .role{color:var(--bronze);font-size:.82rem;font-weight:600;letter-spacing:.04em;margin-top:6px}
+.who p{color:var(--muted);font-size:.9rem;margin:14px 0 0}
+.zone{display:inline-block;margin-top:12px;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:4px 12px}
+.actions{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:20px 24px}
+.act{display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-size:.74rem;font-weight:600;
+  border:1px solid var(--line);border-radius:4px;padding:12px 6px;background:var(--card)}
+.act svg{width:22px;height:22px;stroke:var(--bronze);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.act:focus-visible,.btn:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
+.cta{padding:0 24px 8px;display:grid;gap:10px}
+.btn{display:flex;justify-content:center;align-items:center;gap:8px;text-decoration:none;font-weight:600;font-size:.88rem;border-radius:4px;padding:14px;
+  background:var(--bronze);color:var(--on-bronze);border:1px solid var(--bronze);cursor:pointer;font-family:inherit}
+.btn.ghost{background:transparent;color:var(--bronze)}
+.qr{margin:16px 24px 0;padding:18px;border:1px dashed var(--line);border-radius:4px;display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center}
+.qr .code{background:#fff;padding:6px;border-radius:2px;width:120px;height:120px}
+.qr .code svg{width:100%;height:100%;display:block}
+.qr b{font-family:var(--display);font-size:1.3rem;font-weight:600;display:block;line-height:1.15}
+.qr span{font-size:.8rem;color:var(--muted)}
+.lines{list-style:none;margin:18px 24px 0;padding:0;border-top:1px solid var(--line)}
+.lines li{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:.86rem}
+.lines li span:first-child{color:var(--muted)}
+.lines li span:last-child{font-weight:600;text-align:right;overflow-wrap:anywhere}
+.foot{padding:16px 24px 22px;text-align:center;font-size:.72rem;color:var(--muted)}
+.msg{font-size:.8rem;color:var(--bronze);text-align:center;min-height:1.2em;margin:0}
+@media (max-width:360px){.qr{grid-template-columns:1fr;justify-items:center;text-align:center}}
+</style>
+
+<main class="card">
+  <header class="head">
+    <p class="brand">JNBAY</p>
+    <p class="tag">Studio état des lieux &amp; prise de vue 360°</p>
+  </header>
+
+  <section class="who">
+    <h1>Jacques Balepa</h1>
+    <p class="role">Gérant · Expert en états des lieux</p>
+    <p>Nous réalisons vos états des lieux d'entrée et de sortie, meublés ou non, pour les agences et les propriétaires bailleurs. Photos illimitées, rapport détaillé et évaluation chiffrée des dégradations.</p>
+    <span class="zone">Paris – Île-de-France</span>
+  </section>
+
+  <nav class="actions" aria-label="Me contacter">
+    <a class="act" href="tel:+33695633752"><svg viewBox="0 0 24 24"><path d="M5 3h3l2 5-2.5 1.5a11 11 0 0 0 7 7L16 14l5 2v3a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>Appeler</a>
+    <a class="act" href="https://wa.me/33695633752" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 1a4 4 0 0 1-2-2l1-1-1-2z"/></svg>WhatsApp</a>
+    <a class="act" href="mailto:kssojj@gmail.com"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>E-mail</a>
+  </nav>
+
+  <div class="cta">
+    <a class="btn" href="https://jnbay.fr" target="_blank" rel="noopener">Réserver un état des lieux</a>
+    <a class="btn ghost" id="vcf" href="jnbay.vcf" download="JNBAY.vcf">Enregistrer le contact</a>
+    <button type="button" class="btn ghost" id="share">Partager cette carte</button>
+    <p class="msg" id="msg" role="status"></p>
+  </div>
+
+  <div class="qr">
+    <div class="code" id="qr" role="img" aria-label="QR code vers jnbay.fr"></div>
+    <div><b>Scannez pour réserver</b><span>Estimation du tarif en direct et choix du créneau sur jnbay.fr</span></div>
+  </div>
+
+  <ul class="lines">
+    <li><span>Téléphone</span><span>06 95 63 37 52</span></li>
+    <li><span>E-mail</span><span>kssojj@gmail.com</span></li>
+    <li><span>Réservation</span><span>jnbay.fr</span></li>
+    <li><span>Tarifs</span><span>dès 110 € HT</span></li>
+  </ul>
+
+  <p class="foot">Logements meublés ou non · Maisons · Colocations · Locaux pro · Garages et caves</p>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script>
+(function(){
+  var URL_TUNNEL = "https://jnbay.fr";
+  try{
+    var q = qrcode(0,"M"); q.addData(URL_TUNNEL); q.make();
+    document.getElementById("qr").innerHTML = q.createSvgTag({cellSize:4, margin:0, scalable:true});
+  }catch(e){ document.getElementById("qr").textContent = "jnbay.fr"; }
+  var msg = document.getElementById("msg");
+  document.getElementById("share").addEventListener("click", function(){
+    var data = {title:"JNBAY – États des lieux", text:"JNBAY – États des lieux & prise de vue 360° à Paris – IDF. Réservez en ligne :", url: location.href};
+    if(navigator.share){ navigator.share(data).catch(function(){}); return; }
+    try{ navigator.clipboard.writeText(location.href).then(function(){ msg.textContent = "Lien copié."; }, function(){ msg.textContent = location.href; }); }
+    catch(e){ msg.textContent = location.href; }
+  });
+})();
+</script>
+
+</body>
+</html>
