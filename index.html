@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>JNBAY États des lieux</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: brochure greige, thin serif wordmark, bronze tariff accents; offer → preuves → tunnel de réservation en 4 étapes avec estimation live → grille tarifaire */
+:root{
+  --bg:#f3efeb; --surface:#fbf9f7; --sand:#d6ccc3; --sand-2:#e6ded6;
+  --ink:#1d1a17; --muted:#6b6058; --line:#d3c8be;
+  --bronze:#8f6f35; --bronze-soft:#efe4cf; --on-bronze:#fff;
+  --ok:#2f7a55; --warn:#9a5b14;
+  --display:"Cormorant Garamond", "Times New Roman", Georgia, serif;
+  --body:"Montserrat", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#171513; --surface:#211e1b; --sand:#2d2824; --sand-2:#26221f;
+  --ink:#f1ebe5; --muted:#b3a79c; --line:#3a332e;
+  --bronze:#d2ad6a; --bronze-soft:#3a3020; --on-bronze:#1a1510;
+  --ok:#6cc79a; --warn:#e0a35a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#171513; --surface:#211e1b; --sand:#2d2824; --sand-2:#26221f;
+  --ink:#f1ebe5; --muted:#b3a79c; --line:#3a332e;
+  --bronze:#d2ad6a; --bronze-soft:#3a3020; --on-bronze:#1a1510;
+  --ok:#6cc79a; --warn:#e0a35a; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.6}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.1;text-wrap:balance;margin:0}
+h2{font-size:clamp(2rem,4vw,2.8rem)}
+p{margin:0}
+.eyebrow{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--bronze);font-weight:600}
+a{color:var(--bronze)}
+:focus-visible{outline:2px solid var(--bronze);outline-offset:2px}
+
+/* header */
+header.top{background:var(--sand);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px;flex-wrap:wrap}
+.brand{font-family:var(--display);font-size:1.9rem;letter-spacing:.04em;line-height:1}
+.brand small{display:block;font-family:var(--body);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--bronze);background:var(--bronze);color:var(--on-bronze);font:600 .85rem var(--body);letter-spacing:.04em;padding:12px 20px;border-radius:2px;cursor:pointer;text-decoration:none}
+.btn.ghost{background:transparent;color:var(--bronze)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+
+/* hero */
+.hero{background:var(--sand)}
+.hero .wrap{display:grid;grid-template-columns:1.25fr 1fr;gap:48px;padding-block:56px 64px;align-items:center}
+.hero h1{font-size:clamp(2.6rem,6vw,4.4rem)}
+.hero h1 em{font-style:italic;color:var(--bronze)}
+.hero .lead{margin-top:18px;max-width:52ch;color:var(--muted);font-size:1.02rem}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.ticket{background:var(--surface);border:1px solid var(--line);padding:28px;position:relative}
+.ticket::before{content:"";position:absolute;left:28px;right:28px;top:0;border-top:3px solid var(--bronze)}
+.ticket .from{font-family:var(--display);font-size:3.2rem;line-height:1}
+.ticket .from span{font-family:var(--body);font-size:.85rem;color:var(--muted)}
+.ticket ul{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:10px}
+.ticket li{display:flex;justify-content:space-between;gap:12px;border-top:1px dotted var(--line);padding-top:10px;font-size:.88rem}
+.ticket li b{font-weight:600;font-variant-numeric:tabular-nums}
+
+/* sections */
+section{padding-block:64px}
+.sec-head{display:grid;gap:10px;margin-bottom:32px;max-width:62ch}
+.sec-head p{color:var(--muted)}
+.benefits{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.benefits div{background:var(--surface);padding:22px;display:grid;gap:8px;align-content:start}
+.benefits b{font-family:var(--display);font-size:1.35rem;font-weight:600;line-height:1.2}
+.benefits p{font-size:.88rem;color:var(--muted)}
+.scope{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.chip{border:1px solid var(--line);padding:6px 12px;border-radius:999px;font-size:.8rem;background:var(--surface)}
+.trust{margin-top:28px;font-size:.85rem;color:var(--muted)}
+.trust b{color:var(--ink);font-weight:600}
+
+/* funnel */
+#reserver{background:var(--sand-2);border-block:1px solid var(--line)}
+.funnel{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:28px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
+.steps button{all:unset;cursor:pointer;padding:14px 16px;font-size:.78rem;color:var(--muted);border-bottom:3px solid transparent;display:flex;gap:8px;align-items:center}
+.steps button .n{width:22px;height:22px;border-radius:50%;border:1px solid currentColor;display:grid;place-items:center;font-size:.72rem;flex:none}
+.steps button[aria-current="step"]{color:var(--ink);border-bottom-color:var(--bronze);font-weight:600}
+.steps button.done{color:var(--ok)}
+.steps button:disabled{cursor:not-allowed}
+.step{padding:28px;display:grid;gap:22px}
+.step h3{font-size:1.7rem}
+.field{display:grid;gap:8px;min-width:0}
+.field > label, .field > .lbl{font-size:.78rem;font-weight:600;letter-spacing:.03em}
+.field .hint{font-size:.76rem;color:var(--muted)}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+input[type=text],input[type=tel],input[type=email],input[type=date],input[type=number],select,textarea{
+  width:100%;font:inherit;font-size:.92rem;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:2px;padding:10px 12px}
+textarea{min-height:84px;resize:vertical}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg label{position:relative;cursor:pointer}
+.seg input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.seg span{display:block;border:1px solid var(--line);background:var(--bg);padding:9px 14px;font-size:.85rem;border-radius:2px}
+.seg input:checked + span{border-color:var(--bronze);background:var(--bronze-soft);color:var(--ink);font-weight:600}
+.seg input:focus-visible + span{outline:2px solid var(--bronze);outline-offset:2px}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:.88rem;cursor:pointer}
+.check input{margin-top:4px;accent-color:var(--bronze)}
+.check small{color:var(--muted);display:block}
+.nav{display:flex;justify-content:space-between;gap:12px;padding:18px 28px;border-top:1px solid var(--line);flex-wrap:wrap}
+.err{color:var(--warn);font-size:.82rem}
+.sub{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;border-top:1px solid var(--line);padding-top:18px}
+
+/* estimate */
+.estimate{position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px);padding:24px;display:grid;gap:14px}
+.estimate .total{font-family:var(--display);font-size:3rem;line-height:1;font-variant-numeric:tabular-nums}
+.estimate .total small{font-family:var(--body);font-size:.8rem;color:var(--muted)}
+.estimate .ttc{font-size:.82rem;color:var(--muted)}
+.lines{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:.84rem}
+.lines li{display:flex;justify-content:space-between;gap:12px}
+.lines li span:last-child{font-variant-numeric:tabular-nums;white-space:nowrap}
+.note{font-size:.76rem;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
+.devis{color:var(--warn);font-weight:600}
+.dur{font-size:.84rem;font-weight:600;border:1px solid var(--line);background:var(--bronze-soft);padding:8px 12px;border-radius:2px}
+.book{border:1px solid var(--bronze);background:var(--bronze-soft);padding:18px;display:grid;gap:12px}
+.book h4{margin:0;font-family:var(--display);font-size:1.35rem;font-weight:600}
+.book p{font-size:.86rem}
+
+/* recap */
+.recap{background:var(--bg);border:1px solid var(--line);padding:16px;font-size:.84rem;white-space:pre-wrap;max-height:340px;overflow:auto;font-family:ui-monospace,Consolas,monospace}
+.send{display:flex;gap:12px;flex-wrap:wrap}
+.copy-ok{font-size:.82rem;color:var(--ok)}
+.mail{font-weight:600;user-select:all}
+
+/* tarifs */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.86rem;font-variant-numeric:tabular-nums}
+th,td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:center}
+th{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;background:var(--sand-2)}
+td:first-child,th:first-child{text-align:left;font-weight:600}
+tr:last-child td{border-bottom:0}
+.extras{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:20px}
+.extras div{border-top:2px solid var(--bronze);padding-top:10px;font-size:.84rem}
+.extras b{display:block;font-family:var(--display);font-size:1.5rem;font-weight:600}
+
+footer{padding-block:36px;background:var(--sand);border-top:1px solid var(--line);font-size:.85rem}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (max-width:900px){
+  .hero .wrap,.funnel{grid-template-columns:1fr}
+  .benefits,.extras{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .estimate{position:static}
+}
+@media (max-width:560px){
+  .grid2,.benefits,.extras{grid-template-columns:1fr}
+  .steps button .t{display:none}
+  .steps button{justify-content:center}
+  .step,.nav{padding-left:18px;padding-right:18px}
+}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand">JNBAY<small>Studio état des lieux &amp; prise de vue 360°</small></div>
+    <a class="btn" href="#reserver">Réserver un état des lieux</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Paris – Île-de-France</p>
+      <h1>Vos états des lieux, <em>pris en charge</em> de la clé au rapport.</h1>
+      <p class="lead">Agences et propriétaires bailleurs : transmettez-nous la mission en 3 minutes. Nous organisons le rendez-vous, réalisons l'état des lieux avec photos illimitées et vous remettons un rapport détaillé, avec l'évaluation chiffrée des dégradations.</p>
+      <div class="ctas">
+        <a class="btn" href="#reserver">Estimer et réserver</a>
+        <a class="btn ghost" href="#tarifs">Voir la grille tarifaire</a>
+      </div>
+    </div>
+    <aside class="ticket" aria-label="Tarifs de départ">
+      <p class="eyebrow">À partir de</p>
+      <p class="from">110 € <span>HT · appartement T1</span></p>
+      <ul>
+        <li>Appartement T2<b>140 € HT</b></li>
+        <li>Maison T3 / T4<b>190 € HT</b></li>
+        <li>Local commercial 0–100 m²<b>120 € HT</b></li>
+        <li>Déplacement jusqu'à 10 km<b>Offert</b></li>
+      </ul>
+    </aside>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Pourquoi nous confier vos états des lieux</p>
+      <h2>Un rapport qui tient en cas de litige</h2>
+      <p>Nous utilisons un logiciel de saisie qui permet une capture illimitée de photos, pièce par pièce, pour une documentation sans omission.</p>
+    </div>
+    <div class="benefits">
+      <div><b>Votre temps libéré</b><p>Réactivité et disponibilité immédiate. Vous transmettez, nous gérons le rendez-vous avec le locataire.</p></div>
+      <div><b>Fiabilité et objectivité</b><p>Un intervenant neutre, des constats précis, aucune pièce oubliée.</p></div>
+      <div><b>Litiges anticipés</b><p>Rapport détaillé avec évaluation chiffrée des dégradations incluse.</p></div>
+      <div><b>Biens mieux valorisés</b><p>Option prise de vue 360° pour documenter et mettre en valeur le bien.</p></div>
+    </div>
+    <div class="scope" aria-label="Nos interventions">
+      <span class="chip">Logements meublés ou non</span>
+      <span class="chip">Maisons &amp; villas</span>
+      <span class="chip">Chambres en colocation</span>
+      <span class="chip">Locaux professionnels</span>
+      <span class="chip">Garages, caves, parkings</span>
+      <span class="chip">Prise de vue 360°</span>
+    </div>
+    <p class="trust">Ils nous font confiance : <b>Snexi</b>, <b>Crédit Agricole Immobilier</b>, <b>Constatimmo</b>, <b>Groupe Vilogia</b>, <b>Citya Immobilier</b>.</p>
+  </div>
+</section>
+
+<section id="reserver">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Réservation</p>
+      <h2>Transmettez votre mission</h2>
+      <p>Quatre étapes, environ 3 minutes. Vous voyez le tarif au fur et à mesure. Nous vous recontactons pour confirmer le créneau.</p>
+    </div>
+
+    <div class="funnel">
+      <form class="panel" id="form" novalidate>
+        <nav class="steps" aria-label="Étapes">
+          <button type="button" data-go="0" aria-current="step"><span class="n">1</span><span class="t">Mission</span></button>
+          <button type="button" data-go="1" disabled><span class="n">2</span><span class="t">Le bien</span></button>
+          <button type="button" data-go="2" disabled><span class="n">3</span><span class="t">Rendez-vous</span></button>
+          <button type="button" data-go="3" disabled><span class="n">4</span><span class="t">Envoi</span></button>
+        </nav>
+
+        <!-- STEP 1 -->
+        <div class="step" data-step="0">
+          <h3>La mission</h3>
+          <div class="field"><span class="lbl">Vous êtes</span>
+            <div class="seg">
+              <label><input type="radio" name="client" id="c-agence" value="Agence immobilière" checked><span>Agence / gestionnaire</span></label>
+              <label><input type="radio" name="client" id="c-proprio" value="Propriétaire bailleur"><span>Propriétaire bailleur</span></label>
+            </div>
+          </div>
+          <div class="field"><span class="lbl">Type d'état des lieux</span>
+            <div class="seg">
+              <label><input type="radio" name="mission" id="m-entree" value="Entrée" checked><span>Entrée</span></label>
+              <label><input type="radio" name="mission" id="m-sortie" value="Sortie"><span>Sortie</span></label>
+            </div>
+          </div>
+          <div class="field"><span class="lbl">Nature du bien</span>
+            <div class="seg">
+              <label><input type="radio" name="nature" id="n-appt" value="appt" checked><span>Appartement</span></label>
+              <label><input type="radio" name="nature" id="n-maison" value="maison"><span>Maison / villa</span></label>
+              <label><input type="radio" name="nature" id="n-coloc" value="coloc"><span>Chambre en colocation</span></label>
+              <label><input type="radio" name="nature" id="n-local" value="local"><span>Local commercial / pro</span></label>
+              <label><input type="radio" name="nature" id="n-annexe" value="annexe"><span>Garage / parking / cave</span></label>
+            </div>
+          </div>
+          <div class="field" id="f-typo"><label for="typo">Typologie</label>
+            <select id="typo">
+              <option value="T1">Studio / T1</option>
+              <option value="T2" selected>T2</option>
+              <option value="T34">T3</option>
+              <option value="T34b">T4</option>
+              <option value="T5">T5</option>
+              <option value="T6">T6 et plus</option>
+            </select>
+          </div>
+          <div class="field" id="f-coloc" hidden><label for="coloc">Périmètre en colocation</label>
+            <select id="coloc">
+              <option value="seule">Chambre seule</option>
+              <option value="communes">Chambre avec parties communes</option>
+              <option value="totalite">Logement dans sa totalité</option>
+            </select>
+          </div>
+          <div class="field" id="f-surface-local" hidden><label for="surfLocal">Surface du local</label>
+            <select id="surfLocal">
+              <option value="100">0 – 100 m²</option>
+              <option value="200">100 – 200 m²</option>
+              <option value="300">200 – 300 m²</option>
+              <option value="400">300 – 400 m²</option>
+              <option value="500">400 – 500 m²</option>
+              <option value="501">Plus de 500 m²</option>
+            </select>
+          </div>
+          <div class="field" id="f-meuble">
+            <label class="check"><input type="checkbox" id="meuble"><span>Logement meublé<small>Inventaire du mobilier inclus.</small></span></label>
+          </div>
+          <div class="field">
+            <label class="check"><input type="checkbox" id="opt360"><span>Option prise de vue 360°<small>Visite immersive du bien, forfait 60 € HT.</small></span></label>
+            <label class="check"><input type="checkbox" id="loin"><span>Le bien est à plus de 10 km du lieu de remise des clés<small>Frais de déplacement forfaitaires de 20 € HT. Sinon, le déplacement est offert.</small></span></label>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="step" data-step="1" hidden>
+          <h3>Le bien</h3>
+          <div class="field"><label for="adresse">Adresse *</label><input type="text" id="adresse" autocomplete="street-address" required></div>
+          <div class="grid2">
+            <div class="field"><label for="cpville">Code postal et ville *</label><input type="text" id="cpville" required></div>
+            <div class="field"><label for="etage">Appartement / étage</label><input type="text" id="etage"></div>
+          </div>
+          <div class="grid2">
+            <div class="field"><label for="porte">Porte</label><input type="text" id="porte"></div>
+            <div class="field"><label for="surface">Surface (m²)</label><input type="number" id="surface" min="0" inputmode="numeric"></div>
+          </div>
+          <div class="field"><span class="lbl">Annexes à inclure</span>
+            <div class="seg">
+              <label><input type="checkbox" id="a-cave" value="Cave"><span>Cave</span></label>
+              <label><input type="checkbox" id="a-parking" value="Parking"><span>Parking</span></label>
+              <label><input type="checkbox" id="a-garage" value="Garage"><span>Garage</span></label>
+              <label><input type="checkbox" id="a-autre" value="Autre"><span>Autre</span></label>
+            </div>
+          </div>
+          <div class="grid2">
+            <div class="field"><label for="digicode">Digicode / badge</label><input type="text" id="digicode"></div>
+            <div class="field"><label for="interphone">Interphone / accès</label><input type="text" id="interphone"></div>
+          </div>
+          <div class="field"><label for="consignesAcces">Consignes d'accès</label><textarea id="consignesAcces"></textarea></div>
+          <div class="field"><label for="proprio">Nom du propriétaire</label><input type="text" id="proprio"></div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="step" data-step="2" hidden>
+          <h3>Le rendez-vous</h3>
+          <div class="grid2">
+            <div class="field"><label for="date">Date souhaitée *</label><input type="date" id="date" required></div>
+            <div class="field"><label for="creneau">Créneau souhaité</label>
+              <select id="creneau"><option>Matin (8h – 12h)</option><option>Après-midi (13h – 18h)</option><option>Indifférent</option></select>
+            </div>
+          </div>
+          <div class="field"><span class="lbl">Prise de rendez-vous avec le locataire</span>
+            <div class="seg">
+              <label><input type="radio" name="rdv" id="rdv-jnbay" value="Par JNBAY" checked><span>Par JNBAY</span></label>
+              <label><input type="radio" name="rdv" id="rdv-agence" value="Par le demandeur"><span>Je m'en occupe</span></label>
+            </div>
+          </div>
+          <div class="grid2">
+            <div class="field"><label for="cles">Remise des clés</label>
+              <select id="cles"><option>Agence</option><option>Locataire</option><option>Propriétaire</option><option>Autre</option></select>
+            </div>
+            <div class="field"><label for="adrCles">Adresse de récupération des clés</label><input type="text" id="adrCles"></div>
+          </div>
+
+          <p class="sub">Locataire / occupant</p>
+          <div class="grid2">
+            <div class="field"><label for="locNom">Nom et prénom</label><input type="text" id="locNom"></div>
+            <div class="field"><label for="locTel">Téléphone</label><input type="tel" id="locTel"></div>
+          </div>
+          <div class="field"><label for="locMail">E-mail</label><input type="email" id="locMail"></div>
+
+          <p class="sub" id="sub-demandeur">Vos coordonnées</p>
+          <div class="grid2" id="f-agence">
+            <div class="field"><label for="societe">Agence / société *</label><input type="text" id="societe"></div>
+            <div class="field"><label for="ref">Référence interne</label><input type="text" id="ref"></div>
+          </div>
+          <div class="grid2">
+            <div class="field"><label for="demNom" id="lbl-demNom">Nom du gestionnaire *</label><input type="text" id="demNom" autocomplete="name" required></div>
+            <div class="field"><label for="demTel">Téléphone *</label><input type="tel" id="demTel" autocomplete="tel" required></div>
+          </div>
+          <div class="field"><label for="demMail">E-mail *</label><input type="email" id="demMail" autocomplete="email" required></div>
+          <div class="field"><label for="consignes">Consignes particulières</label><textarea id="consignes" placeholder="Compteurs à relever, documents à apporter, présence du propriétaire…"></textarea></div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="step" data-step="3" hidden>
+          <h3>Envoyez votre demande</h3>
+          <div class="book" id="book">
+            <h4>1. Choisissez votre créneau</h4>
+            <p id="bookTxt">Durée estimée de l'intervention : <b id="bookDur"></b>. Le calendrier affiche uniquement nos créneaux libres, du lundi au samedi (10h ou 14h). Indiquez l'adresse du bien et sa typologie lors de la réservation. Votre créneau est ensuite confirmé par JNBAY.</p>
+            <a class="btn" id="bookBtn" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3-fzGDXkiAVXFbWjAx9TQh9H2dyBfgArBruKWLa1UwS1G38U9xIBq9F9xOyf2DXUY7MN4dHJSw" target="_blank" rel="noopener">Choisir mon créneau</a>
+            <label class="check"><input type="checkbox" id="urg"><span>Aucun créneau ne me convient : je demande une intervention en urgence<small>Proposez la date et l'heure qui vous conviennent. JNBAY étudie la demande et vous répond. Si elle est acceptée, des frais d'urgence de 30 € HT s'ajoutent.</small></span></label>
+            <div class="grid2" id="f-urg" hidden>
+              <div class="field"><label for="urgDate">Date souhaitée</label><input type="date" id="urgDate"></div>
+              <div class="field"><label for="urgHeure">Heure souhaitée</label><input type="text" id="urgHeure" placeholder="ex : 8h30 ou après 17h"></div>
+            </div>
+          </div>
+          <p><b>2. Envoyez la fiche de mission.</b> Elle contient les informations d'accès et de contact. Envoyez-la par WhatsApp en un clic, ou copiez-la dans un e-mail.</p>
+          <div class="recap" id="recap" tabindex="0"></div>
+          <div class="send">
+            <a class="btn" id="wa" href="#" target="_blank" rel="noopener">Envoyer par WhatsApp</a>
+            <button type="button" class="btn ghost" id="copy">Copier pour un e-mail</button>
+          </div>
+          <p class="copy-ok" id="copyMsg" role="status"></p>
+          <p class="hint" style="font-size:.84rem;color:var(--muted)">Par e-mail : collez le texte et envoyez-le à <span class="mail">kssojj@gmail.com</span>. Par téléphone : <span class="mail">06 95 63 37 52</span>.</p>
+        </div>
+
+        <div class="nav">
+          <button type="button" class="btn ghost" id="prev" hidden>Retour</button>
+          <span class="err" id="err" role="alert"></span>
+          <button type="button" class="btn" id="next">Continuer</button>
+        </div>
+      </form>
+
+      <aside class="panel estimate" aria-live="polite">
+        <p class="eyebrow">Estimation</p>
+        <p class="total" id="total">140 € <small>HT</small></p>
+        <p class="ttc" id="ttc">soit 168 € TTC</p>
+        <p class="dur" id="dur">Durée sur place : 1h15</p>
+        <ul class="lines" id="lines"></ul>
+        <p class="note">Tarifs au 01/09/2026, en € HT. Annulation moins de 4 h avant la mission : 40 € HT. Le montant définitif est confirmé avec le créneau.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="tarifs">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Grille tarifaire</p>
+      <h2>Des prix fixes, par typologie</h2>
+      <p>Tarifs au 01/09/2026, exprimés en € HT.</p>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Type</th><th>T1</th><th>T2</th><th>T3 &amp; T4</th><th>T5</th><th>T6</th></tr></thead>
+        <tbody>
+          <tr><td>Appartement</td><td>110</td><td>140</td><td>160</td><td>190</td><td>220</td></tr>
+          <tr><td>Maison &amp; villa</td><td>–</td><td>150</td><td>190</td><td>220</td><td>260</td></tr>
+          <tr><td>Option meublé</td><td>+40</td><td>+40</td><td>+50</td><td>+50</td><td>+60</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tbl-wrap" style="margin-top:16px">
+      <table>
+        <thead><tr><th>Local commercial</th><th>0–100 m²</th><th>100–200 m²</th><th>200–300 m²</th><th>300–400 m²</th><th>400 m² et plus</th></tr></thead>
+        <tbody><tr><td>Tarif</td><td>120</td><td>200</td><td>250</td><td>300</td><td>Sur devis</td></tr></tbody>
+      </table>
+    </div>
+    <div class="extras">
+      <div><b>50 / 60 / 180 €</b>Colocation : chambre seule, avec parties communes, logement entier</div>
+      <div><b>60 €</b>Option prise de vue 360°</div>
+      <div><b>Offert</b>Déplacement jusqu'à 10 km, puis forfait 20 €</div>
+      <div><b>40 €</b>Annulation moins de 4 h avant la mission</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><span class="brand" style="font-size:1.4rem">JNBAY</span><br>États des lieux &amp; prise de vue 360° · Paris – IDF</div>
+    <div>E-mail : <span class="mail">kssojj@gmail.com</span><br>WhatsApp : <span class="mail">06 95 63 37 52</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const WA = "33695633752";
+  // Liens des agendas de réservation Google, par durée de créneau (minutes). À remplir.
+  // Page de réservation Google Agenda (créneaux de 3h, 2 par jour)
+  const BOOKING_URL = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ3-fzGDXkiAVXFbWjAx9TQh9H2dyBfgArBruKWLa1UwS1G38U9xIBq9F9xOyf2DXUY7MN4dHJSw";
+  // Durées standard (minutes) par typologie ; option meublé : +40 min
+  const DUREE = {T1:60,T2:80,T34:90,T34b:105,T5:120,T6:130};
+  function duration(){
+    const n=val("nature");
+    if(!(n==="appt"||n==="maison")) return null;
+    return DUREE[$("typo").value] + ($("meuble").checked?40:0);
+  }
+  function hm(m){ const h=Math.floor(m/60), r=m%60; return h+"h"+(r?String(r).padStart(2,"0"):"00"); }
+  const $ = id => document.getElementById(id);
+  const val = name => (document.querySelector('input[name="'+name+'"]:checked')||{}).value;
+  const PRICES = {
+    appt:   {T1:110,T2:140,T34:160,T5:190,T6:220},
+    maison: {T1:null,T2:150,T34:190,T5:220,T6:260},
+    meuble: {T1:40,T2:40,T34:50,T5:50,T6:60},
+    coloc:  {seule:50,communes:60,totalite:180},
+    local:  {"100":120,"200":200,"300":250,"400":300,"500":null,"501":null}
+  };
+  const NATURE = {appt:"Appartement",maison:"Maison / villa",coloc:"Chambre en colocation",local:"Local commercial / pro",annexe:"Garage / parking / cave"};
+  const typoKey = () => { const v=$("typo").value; return v==="T34b"?"T34":v; };
+  const typoLabel = () => $("typo").selectedOptions[0].textContent;
+
+  function estimate(){
+    const n = val("nature"), lines=[]; let devis=false, total=0;
+    if(n==="appt"||n==="maison"){
+      const p = PRICES[n][typoKey()];
+      if(p==null){devis=true;lines.push([NATURE[n]+" "+typoLabel(),"Sur devis"]);}
+      else{total+=p;lines.push([NATURE[n]+" "+typoLabel(),p+" €"]);}
+      if($("meuble").checked){const m=PRICES.meuble[typoKey()];total+=m;lines.push(["Option meublé","+"+m+" €"]);}
+    } else if(n==="coloc"){
+      const p=PRICES.coloc[$("coloc").value];total+=p;lines.push([$("coloc").selectedOptions[0].textContent,p+" €"]);
+    } else if(n==="local"){
+      const p=PRICES.local[$("surfLocal").value];
+      if(p==null){devis=true;lines.push(["Local "+$("surfLocal").selectedOptions[0].textContent,"Sur devis"]);}
+      else{total+=p;lines.push(["Local "+$("surfLocal").selectedOptions[0].textContent,p+" €"]);}
+    } else {devis=true;lines.push(["Garage / parking / cave","Sur devis"]);}
+    if($("opt360").checked){total+=60;lines.push(["Prise de vue 360°","+60 €"]);}
+    if($("loin").checked){total+=20;lines.push(["Déplacement > 10 km","+20 €"]);}
+    else lines.push(["Déplacement ≤ 10 km","Offert"]);
+    if($("urg").checked){total+=30;lines.push(["Urgence (si acceptée)","+30 €"]);}
+    return {total,devis,lines};
+  }
+  function fmt(n){return n.toLocaleString("fr-FR",{maximumFractionDigits:2})+" €";}
+  function renderEstimate(){
+    const e=estimate();
+    $("lines").innerHTML="";
+    e.lines.forEach(([a,b])=>{const li=document.createElement("li");const s1=document.createElement("span");s1.textContent=a;const s2=document.createElement("span");s2.textContent=b;li.append(s1,s2);$("lines").append(li);});
+    if(e.devis){
+      $("total").innerHTML='<span class="devis">Sur devis</span>';
+      $("ttc").textContent = e.total ? "Options : "+fmt(e.total)+" HT en plus du devis" : "Nous vous envoyons un devis avec la confirmation.";
+    } else {
+      $("total").innerHTML=fmt(e.total)+' <small>HT</small>';
+      $("ttc").textContent="soit "+fmt(Math.round(e.total*1.2*100)/100)+" TTC";
+    }
+    const d=duration();
+    $("dur").textContent = d==null ? "Durée sur place : confirmée par JNBAY" : "Durée sur place : "+hm(d);
+    return e;
+  }
+  function syncFields(){
+    const n=val("nature");
+    $("f-typo").hidden = !(n==="appt"||n==="maison");
+    $("f-meuble").hidden = !(n==="appt"||n==="maison");
+    $("f-coloc").hidden = n!=="coloc";
+    $("f-surface-local").hidden = n!=="local";
+    const agence = val("client")==="Agence immobilière";
+    $("f-agence").hidden = !agence;
+    $("lbl-demNom").textContent = agence ? "Nom du gestionnaire *" : "Nom et prénom *";
+    $("f-urg").hidden = !$("urg").checked;
+    renderEstimate();
+    if(cur===3) buildRecap();
+  }
+
+  // steps
+  let cur=0, reached=0;
+  const steps=[...document.querySelectorAll(".step")];
+  const tabs=[...document.querySelectorAll(".steps button")];
+  const required = {
+    1:["adresse","cpville"],
+    2:()=>["date","demNom","demTel","demMail"].concat(val("client")==="Agence immobilière"?["societe"]:[])
+  };
+  function check(i){
+    const r = typeof required[i]==="function"?required[i]():(required[i]||[]);
+    for(const id of r){const el=$(id); if(!el.value.trim()){el.focus();return "Complétez le champ « "+document.querySelector('label[for="'+id+'"]').textContent.replace(" *","")+" » pour continuer.";}}
+    if(i===2){
+      const m=$("demMail").value.trim(); if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m)){$("demMail").focus();return "L'adresse e-mail semble incomplète, vérifiez-la.";}
+    }
+    return "";
+  }
+  function show(i){
+    cur=i; reached=Math.max(reached,i);
+    steps.forEach((s,k)=>s.hidden=k!==i);
+    tabs.forEach((t,k)=>{t.disabled=k>reached; t.classList.toggle("done",k<reached&&k!==i); if(k===i)t.setAttribute("aria-current","step"); else t.removeAttribute("aria-current");});
+    $("prev").hidden=i===0; $("next").hidden=i===3; $("err").textContent="";
+    if(i===3) buildRecap();
+  }
+  $("next").addEventListener("click",()=>{const e=check(cur); if(e){$("err").textContent=e;return;} show(cur+1); document.getElementById("reserver").scrollIntoView({block:"start"});});
+  $("prev").addEventListener("click",()=>show(cur-1));
+  tabs.forEach((t,k)=>t.addEventListener("click",()=>{ if(k>cur){for(let s=cur;s<k;s++){const e=check(s);if(e){$("err").textContent=e;return;}}} show(k);}));
+
+  function buildRecap(){
+    const e=estimate(), n=val("nature");
+    const annexes=["a-cave","a-parking","a-garage","a-autre"].filter(id=>$(id).checked).map(id=>$(id).value).join(", ");
+    const L=[];
+    const add=(k,v)=>{ if(v && String(v).trim()) L.push(k+" : "+String(v).trim()); };
+    L.push("NOUVELLE MISSION – ÉTAT DES LIEUX");
+    L.push("");
+    add("Demandeur", val("client"));
+    add("Mission", "État des lieux de "+val("mission").toLowerCase());
+    let bien=NATURE[n];
+    if(n==="appt"||n==="maison") bien+=" "+typoLabel()+($("meuble").checked?" meublé":" non meublé");
+    if(n==="coloc") bien+=" – "+$("coloc").selectedOptions[0].textContent;
+    if(n==="local") bien+=" – "+$("surfLocal").selectedOptions[0].textContent;
+    add("Bien", bien);
+    add("Options", [$("opt360").checked?"Prise de vue 360°":"", $("loin").checked?"Déplacement > 10 km":""].filter(Boolean).join(", "));
+    const dm=duration();
+    add("Durée estimée", dm==null?"À confirmer":hm(dm));
+    $("bookDur").textContent = dm==null ? "à confirmer" : hm(dm);
+    add("Estimation", e.devis?("Sur devis"+(e.total?" (+ "+fmt(e.total)+" HT d'options)":"")):(fmt(e.total)+" HT"));
+    L.push("");
+    L.push("— LE BIEN");
+    add("Adresse", $("adresse").value); add("CP / Ville", $("cpville").value); add("Appartement / étage", $("etage").value);
+    add("Porte", $("porte").value); add("Surface", $("surface").value?$("surface").value+" m²":""); add("Annexes", annexes);
+    add("Digicode / badge", $("digicode").value); add("Interphone", $("interphone").value); add("Consignes d'accès", $("consignesAcces").value);
+    add("Propriétaire", $("proprio").value);
+    L.push("");
+    L.push("— RENDEZ-VOUS");
+    const d=$("date").value; add("Date souhaitée", d? new Date(d+"T12:00").toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long",year:"numeric"}):"");
+    add("Créneau", $("creneau").value); add("Prise de RDV", val("rdv"));
+    if($("urg").checked){
+      const ud=$("urgDate").value;
+      L.push("⚠ DEMANDE D'URGENCE (aucun créneau disponible ne convient) – frais 30 € HT si acceptée");
+      add("Date urgence", ud? new Date(ud+"T12:00").toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long",year:"numeric"}):"À convenir");
+      add("Heure urgence", $("urgHeure").value || "À convenir");
+    }
+    add("Remise des clés", $("cles").value); add("Adresse des clés", $("adrCles").value);
+    add("Locataire", $("locNom").value); add("Tél. locataire", $("locTel").value); add("E-mail locataire", $("locMail").value);
+    L.push("");
+    L.push("— CONTACT");
+    if(val("client")==="Agence immobilière"){ add("Agence", $("societe").value); add("Référence", $("ref").value); }
+    add("Nom", $("demNom").value); add("Téléphone", $("demTel").value); add("E-mail", $("demMail").value);
+    add("Consignes", $("consignes").value);
+    const txt=L.join("\n");
+    $("recap").textContent=txt;
+    $("wa").href="https://wa.me/"+WA+"?text="+encodeURIComponent(txt);
+    $("copyMsg").textContent="";
+  }
+  $("copy").addEventListener("click",()=>{
+    const txt=$("recap").textContent;
+    const fallback=()=>{const r=document.createRange();r.selectNodeContents($("recap"));const s=getSelection();s.removeAllRanges();s.addRange(r);$("copyMsg").textContent="Texte sélectionné : copiez-le avec Ctrl+C (ou appui long sur mobile).";};
+    try{ navigator.clipboard.writeText(txt).then(()=>{$("copyMsg").textContent="Demande copiée. Collez-la dans un e-mail à kssojj@gmail.com.";},fallback);}catch(e){fallback();}
+  });
+
+  document.getElementById("form").addEventListener("input",syncFields);
+  document.getElementById("form").addEventListener("change",syncFields);
+  document.getElementById("form").addEventListener("submit",e=>e.preventDefault());
+  const t=new Date(); t.setDate(t.getDate()+1); $("date").min=t.toISOString().slice(0,10);
+  syncFields();
+})();
+</script>
+
+</body>
+</html>
